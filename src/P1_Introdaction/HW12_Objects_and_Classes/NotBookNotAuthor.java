@@ -11,12 +11,21 @@ public class NotBookNotAuthor {
         book1 = new Book("Название1", author1, 2022);
         book2 = new Book("Название2", author2, 2023);
 
-        book1.printBook();
+        System.out.println(author1);
+        System.out.println(book1);
         System.out.println();
-        book2.printBook();
 
-        book1.setPublicYear(1989);
-        System.out.println("\nДата публиции book1 изменена\n");
-        book1.printBook();
+        System.out.println("book1 = " + book1);
+        System.out.println("book2 = " + book2);
+        System.out.println("book1.equals(book2) = " + book1.equals(book2));
+
+        Book book3 = new Book(book1.getTitle(),author1,2000);
+        System.out.println("book3 = " + book3);
+        System.out.println("book3.equals(book1) = " + book3.equals(book1));
+        System.out.println();
+
+        System.out.println("book1.hashCode() = " + book1.hashCode());
+        System.out.println("book2.hashCode() = " + book2.hashCode());
+        System.out.println("book3.hashCode() = " + book3.hashCode());
     }
 }
