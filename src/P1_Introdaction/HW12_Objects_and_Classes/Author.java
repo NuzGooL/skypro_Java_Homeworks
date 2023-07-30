@@ -1,5 +1,7 @@
 package P1_Introdaction.HW12_Objects_and_Classes;
 
+import java.util.Objects;
+
 public class Author {
     private String name;
     private String surname;
@@ -30,17 +32,12 @@ public class Author {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Author author = (Author) o;
-
-        if (!getName().equals(author.getName())) return false;
-        return getSurname().equals(author.getSurname());
+        return Objects.equals(getName(), author.getName()) && Objects.equals(getSurname(), author.getSurname());
     }
 
     @Override
     public int hashCode() {
-        int result = getName().hashCode();
-        result = 31 * result + getSurname().hashCode();
-        return result;
+        return Objects.hash(getName(), getSurname());
     }
 }
