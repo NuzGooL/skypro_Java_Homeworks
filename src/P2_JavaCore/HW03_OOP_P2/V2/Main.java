@@ -1,4 +1,4 @@
-package P2_JavaCore.HW03_OOP_P2;
+package P2_JavaCore.HW03_OOP_P2.V2;
 
 public class Main {
     public static void main(String[] args) {

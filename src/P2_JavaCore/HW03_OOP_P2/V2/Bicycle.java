@@ -1,6 +1,6 @@
-package P2_JavaCore.HW03_OOP_P2;
+package P2_JavaCore.HW03_OOP_P2.V2;
 
-public class Bicycle implements VehicleInterface {
+public class Bicycle implements ServiceVehicle {
     private final String modelName;
     private final int wheelsCount;
 
@@ -15,7 +15,13 @@ public class Bicycle implements VehicleInterface {
     }
 
     @Override
-    public int getWheelsCount() {
-        return wheelsCount;
+    public void service() {
+        for (int i = 0; i < wheelsCount; i++) {
+            updateTyre();
+        }
+    }
+
+    private void updateTyre() {
+        System.out.println("Меняем покрышку");
     }
 }

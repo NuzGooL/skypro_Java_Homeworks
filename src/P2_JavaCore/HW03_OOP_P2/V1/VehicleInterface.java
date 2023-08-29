@@ -1,4 +1,4 @@
-package P2_JavaCore.HW03_OOP_P2;
+package P2_JavaCore.HW03_OOP_P2.V1;
 
 public interface VehicleInterface {
 
@@ -10,4 +10,3 @@ public interface VehicleInterface {
 
     int getWheelsCount();
 }
-
