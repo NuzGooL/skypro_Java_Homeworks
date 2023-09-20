@@ -6,6 +6,7 @@ import com.homework6.ListsSets.Exceptions.EmployeeStorageIsFullException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -49,6 +50,6 @@ public class EmployeeServiceImp implements EmployeeService {
 
     @Override
     public List<Employee> getStaffBook() {
-        return staffBook;
+        return Collections.unmodifiableList(staffBook);
     }
 }
