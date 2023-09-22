@@ -1,4 +1,6 @@
-package com.homework6.ListsSets;
+package com.homework6.ListsSets.service;
+
+import com.homework6.ListsSets.model.Employee;
 
 import java.util.List;
 

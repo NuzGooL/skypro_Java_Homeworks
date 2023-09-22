@@ -1,5 +1,6 @@
-package com.homework6.ListsSets;
+package com.homework6.ListsSets.service;
 
+import com.homework6.ListsSets.model.Employee;
 import com.homework6.ListsSets.Exceptions.EmployeeAlreadyAddedException;
 import com.homework6.ListsSets.Exceptions.EmployeeNotFoundException;
 import com.homework6.ListsSets.Exceptions.EmployeeStorageIsFullException;

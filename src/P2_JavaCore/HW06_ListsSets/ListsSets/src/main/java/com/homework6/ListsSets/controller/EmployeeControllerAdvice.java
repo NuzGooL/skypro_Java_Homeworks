@@ -1,4 +1,4 @@
-package com.homework6.ListsSets;
+package com.homework6.ListsSets.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

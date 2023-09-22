@@ -1,4 +1,4 @@
-package com.homework6.ListsSets;
+package com.homework6.ListsSets.model;
 
 import java.util.Objects;
 
