@@ -1,5 +1,7 @@
 package P1_Introdaction.HW12_Objects_and_Classes;
 
+import java.util.Objects;
+
 public class Book {
     private String title;
     private Author author;
@@ -27,10 +29,29 @@ public class Book {
         this.publicYear = publicYear;
     }
 
-    //////////////////////////////////////////////////
     public void printBook() {
         System.out.println("Название книги: " + this.title);
         this.author.printAuthor();
         System.out.println("Год издания: " + this.publicYear);
+    }
+
+    @Override
+    public String toString() {
+        return "\"" + getTitle() + "\" " +
+                getAuthor()
+                + " " + getPublicYear() + "г.";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(getTitle(), book.getTitle()) && Objects.equals(getAuthor(), book.getAuthor());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTitle(), getAuthor());
     }
 }
