@@ -38,7 +38,8 @@ public class EmployeeBook {
         return employeeBook.toString();
     }
 
-    //Удалил все не относящиеся к задаче методы и заменил их заранее созданной книгой.
+    //С выделением отдельного контроллера под задачи ДЗ смысла в удалении методов нет,
+    //но в рамках текущего ДЗ они по прежнему не нужны, да и предсозданная книга удобнее
     public static EmployeeBook EmployeeBookPreset() {
         EmployeeBook employeeBook = new EmployeeBook(7);
         employeeBook.addEmployee("ФИО1", Department.DEP1, 10_000_00);
