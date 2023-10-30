@@ -57,7 +57,7 @@ public class StoreServiceImp implements StoreService {
     public Product addfromStore(int vc) {
         Product product = store.getRepository().keySet().stream().filter(p -> p.getVendorCode() == vc).findAny().orElse(null);
         if (product == null) {
-            throw new RuntimeException("нет товара");
+            throw new RuntimeException("product with vc="+vc+" is out of store");
         }
         store.remove(product);
         cart.add(product);
