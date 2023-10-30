@@ -2,6 +2,7 @@ package groupCartMeta.artifactCartMeta.packagenameMeta.service;
 
 import groupCartMeta.artifactCartMeta.packagenameMeta.entity.Product;
 
+import java.util.List;
 import java.util.Map;
 
 public interface StoreService {
@@ -20,4 +21,6 @@ public interface StoreService {
     Product addfromStore(int vc);
 
     Map<Product, Integer> sell();
+
+    List<String> addList(List<Integer> vcs);
 }

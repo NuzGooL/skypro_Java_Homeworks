@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -50,7 +51,7 @@ public class StoreController {
         return storeService.showCart();
     }
 
-    @GetMapping(path = "/order/add")
+    @GetMapping(path = "/order/add1")
     public Product addfromStore(@RequestParam("vc") int vc) {
         return storeService.addfromStore(vc);
     }
@@ -58,5 +59,9 @@ public class StoreController {
     @GetMapping(path = "/order/sell")
     public Map<Product, Integer> sell() {
         return storeService.sell();
+    }
+    @GetMapping("/order/add")
+    public List<String> addList(@RequestParam(value = "vc") List<Integer> vcs){
+        return storeService.addList(vcs);
     }
 }

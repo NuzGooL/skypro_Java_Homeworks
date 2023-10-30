@@ -1,12 +1,15 @@
 package groupCartMeta.artifactCartMeta.packagenameMeta.service;
 
 import groupCartMeta.artifactCartMeta.packagenameMeta.entity.Product;
+import groupCartMeta.artifactCartMeta.packagenameMeta.exceptions.NoVCinStore;
 import groupCartMeta.artifactCartMeta.packagenameMeta.repository.Cart;
 import groupCartMeta.artifactCartMeta.packagenameMeta.repository.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -57,7 +60,7 @@ public class StoreServiceImp implements StoreService {
     public Product addfromStore(int vc) {
         Product product = store.getRepository().keySet().stream().filter(p -> p.getVendorCode() == vc).findAny().orElse(null);
         if (product == null) {
-            throw new RuntimeException("product with vc="+vc+" is out of store");
+            throw new NoVCinStore("product with vc=" + vc + " is out of store");
         }
         store.remove(product);
         cart.add(product);
@@ -69,5 +72,18 @@ public class StoreServiceImp implements StoreService {
         Map<Product, Integer> result = Collections.unmodifiableMap(cart.getCart());
         cart.clear();
         return result;
+    }
+
+    @Override
+    public List<String> addList(List<Integer> vcs) {
+        List<String> showResult = new ArrayList<>();
+        for (Integer vc : vcs) {
+            try {
+                showResult.add(addfromStore(vc).toString());
+            } catch (NoVCinStore e) {
+                showResult.add(e.getMessage());
+            }
+        }
+        return showResult;
     }
 }
