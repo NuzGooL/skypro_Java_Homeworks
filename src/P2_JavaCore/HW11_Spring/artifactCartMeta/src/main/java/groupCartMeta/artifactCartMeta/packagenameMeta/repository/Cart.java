@@ -34,7 +34,6 @@ public class Cart implements CartInt {
     @PreDestroy
     public void predestroy() {
         store.merge(cart);
-        cart = new HashMap<>();
         System.out.println("cart destroyed");
     }
 
